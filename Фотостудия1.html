@@ -1,0 +1,380 @@
+﻿
+<!DOCTYPE html>
+<html>
+<!-- 3 columns -->
+<head>
+<meta charset="utf-8">
+<title>Фотостудия</title>
+	<style>
+		body{
+			background:white;
+			color:black;
+			margin: 0;
+			padding: 0;
+			border-top:3px solid #FF6347;
+			font-family: Arial, Helvetica, sans-serif;	
+		}
+		header{
+			
+			font: 100% Georgia, "Times New Roman",serif;
+			margin:0.3em auto;	
+			height:7em;
+			border-bottom:1px solid #B51032;
+			width:60em;
+		}
+				header img{
+					margin-left:0em;
+					margin-top:0.3em;
+				}
+				header span{float:right;
+					margin-right:0em;
+					margin-top:0.3em;
+					margin-bottom:0.3em;
+				}
+		nav{
+			
+			height:3em;
+			font: 100% Arial, Helvetica, sans-serif;
+			width:60em;
+			margin:0 auto;
+		}
+				nav ul{
+					list-style-type:none;
+					padding:0.8em 0;
+					margin:0;
+				}
+				nav li{
+					display:inline;
+					margin-right:0.75em;
+					margin-left:0.75em;
+				}
+				nav li a:link, nav li a:visited{
+					text-decoration:none;
+					background:#B51032;
+					color:white;
+					border-left:15px solid #711515;
+					border-right:5px solid #711515;
+					padding:0.3em 1em 0.3em 0.5em;
+				}
+				nav li a:hover{
+					background:#711515;
+				}
+		section{
+			
+			height:300px;
+			width:60em;
+			margin:0 auto;
+			
+		}
+			.wrapper {
+			background: #fff;
+			width: 700px;
+			padding: 1px 15px 15px;
+			margin: 0 auto; 
+			}
+			.slider {
+				z-index: 9;
+				width: 700px;
+				height: 290px;
+				overflow: hidden;
+				margin: 0 0 7px;
+				position: relative;
+			}
+			.slider ul,
+			.slider li {
+				padding: 0;
+				margin: 0;
+				list-style-type: none;
+			}
+			.slider ul {
+				width: 9999px; 
+			}
+			.slider ul li {
+				list-style-type: none;
+				float: left;
+				width: 700px;
+				height: 290px;
+			}
+			.slider .nav {
+				position: absolute;
+				left: 15px;
+				bottom: 12px; 
+			}
+			.slider .nav span {
+				opacity: 0.9;
+				background: #fff;
+				margin: 0 8px 0 0;
+				width: 16px;
+				height: 16px;
+				border-radius: 8px;
+				cursor: pointer;
+				overflow: hidden;
+				display: block;
+				float: left;
+				box-shadow: 0 1px 2px #000;
+			}
+			.slider .nav span.on {
+				background: #2e9419;
+			}
+		article{
+			
+			width:60em;
+			margin:0 auto;
+			
+		}
+			article h1{
+				font-family:franklin gothic medium;
+			}
+			article div h1{
+				font-family:cursive;
+			}
+			article h2{
+				font-family:futurablack bt;
+			}
+			article p{
+				line-height:1.5;
+				font-size:120% ;
+				font-family:palatino;
+			}
+		aside{
+			width:60em;
+			margin:0 auto;
+		}
+		#light{
+			background:gray;	
+			float:left;
+			width:19em;
+			height:750px;
+			margin-right:1.5em;
+			
+			
+		}
+			
+		#black{
+			background:#98FB98;
+			float:left;
+			width:19em;
+			height:750px;
+			margin-right:1.5em;
+		}
+			
+		#rama{
+			background:#8470FF;
+			float:left;
+			width:19em;
+			height:750px;
+		}
+			#light p, #black p, #rama p{
+				line-height:1.5;
+			}
+		#light p, #black p, #rama p{
+			/*border:1px solid black;*/
+			font-family:segoe print;
+			margin-left:1em;
+			margin-right:1em;
+		}
+		#light h3, #black h3, #rama h3{
+			margin-left:1em;
+			font-family:segoe print;
+		}
+		#light img, #black img, #rama img{
+			margin-left:1em;
+		}
+		#vidakc{
+			width:60em;
+			margin:0 auto;
+		}
+		#video{
+			
+			width:30em;
+			height:300px;
+			clear:left;
+			float:left;
+			padding-top:20px;
+		}
+			
+			
+		#akcii{
+			
+			width:30em;
+			height:300px;
+			float:left;
+		}
+			#akcii h1{
+				font-family:cursive;
+			}
+			#akcii p{
+				font-family:palatino;
+			}
+			#akcii h1, #akcii p{
+				margin-left:2em;
+				margin-right:2em;
+			}
+		footer{
+			
+			clear:left;
+			width:60em;
+			margin:0 auto;
+			height:100px;
+			border-top:1px solid black;
+		}
+			footer a:link, footer a:active, footer a:visited{
+				color:black;
+				text-decoration:none;
+				
+			}
+			footer a:hover{
+				color:green;
+			}
+			footer h3{
+				font-family:algerian;
+				text-align:center;
+				padding-top:20px;
+			}
+	</style>
+	<script type="text/javascript" src="js/jquery.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			$(".slider").each(function ()
+			{
+				var obj = $(this);
+				$(obj).append("<div class='nav'></div>");
+
+				$(obj).find("li").each(function ()
+				{
+					$(obj).find(".nav").append("<span rel='"+$(this).index()+"'></span>");
+					$(this).addClass("slider"+$(this).index());
+				});
+
+				$(obj).find("span").first().addClass("on");
+			});
+		});
+
+	function sliderJS (obj, sl) // slider function
+	{
+		var ul = $(sl).find("ul");
+		var bl = $(sl).find("li.slider"+obj);
+		var step = $(bl).width();
+		$(ul).animate({marginLeft: "-"+step*obj}, 500);
+	}
+
+	$(document).on("click", ".slider .nav span", function() // slider click navigate
+	{
+		var sl = $(this).closest(".slider");
+		$(sl).find("span").removeClass("on");
+		$(this).addClass("on");
+		var obj = $(this).attr("rel");
+		sliderJS(obj, sl);
+		return false;
+	});
+</script>
+</head>
+	<body>
+		<header>
+			<img src='fas.jpg' alt='Логотип' id='kartinca' height='100px'>
+			<span>г.Харьков</br>
+				ул.Московский проспект 000</br>
+				+38 050 111 22 33</br>
+				+38 067 444 55 66</br>
+				+38 063 777 88 99
+			</span>
+		</header>
+		<nav>
+			<ul>
+				<li><a href='#'>Кнопка 1</a></li>
+				<li><a href='#'>Кнопка 2</a></li>
+				<li><a href='#'>Кнопка 3</a></li>
+				<li><a href='#'>Кнопка 4</a></li>
+				<li><a href='#'>Кнопка 5</a></li>
+				<li><a href='#'>Кнопка 6</a></li>
+				<li><a href='#'>Кнопка 7</a></li>
+			</ul>
+		</nav>
+		<section>
+			<div class="wrapper">
+		
+		<div class="slider">
+			<ul>
+				<li><img src="i/1.jpg" alt="" /></li>
+				<li><img src="i/2.jpg" alt="" /></li>
+				<li><img src="i/3.jpg" alt="" /></li>
+				<li><img src="i/4.jpg" alt="" /></li>
+				<li><img src="i/5.jpg" alt="" /></li>
+			</ul>
+		</div>
+	</div><script type="text/javascript"> var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-23131825-1']);
+		_gaq.push(['_trackPageview']); (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})(); </script>
+
+		<script type="text/javascript">new Image().src = "http://counter.yadro.ru/hit?r"+
+			escape(document.referrer)+((typeof(screen)=="undefined")?"":
+				";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+				screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+";"+Math.random();</script>
+
+				<script type="text/javascript">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter20963398 = new Ya.Metrika({id:20963398, webvisor:true, clickmap:true, trackLinks:true, accurateTrackBounce:true, trackHash:true}); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript><div><img src="//mc.yandex.ru/watch/20963398" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+
+	
+		</section>
+		<article>
+			<h1>АРЕНДА ФОТОСТУДИИ В ХАРЬКОВЕ</h1>
+			<h2>Фотостудия "Lemesh Line" в Харькове</h2>
+			<p>Актуальное предложение для фотографов – почасовая аренда залов фотостудии «Жёлтый кролик» по невысокой цене: от 140 до 250 гривен 
+			за час. Существует возможность со скидкой приобрести абонемент на 10 или 20 часов аренды со сроком действия 6 месяцев.</p>
+			<p>Одно из ключевых преимуществ – естественный свет, проникающий через большие окна, расположенные вдоль одной стены в каждом зале.</p>
+			<p>Площадь фотостудии – 250 квадратных метров. Высота потолков – 3,5 м, высота окон от подоконника до потолка – 2,6 м.
+			Каждый зал оснащен кондиционером и точкой доступа к Wi-Fi.</p>
+			<div><h1>3 зала = 12 фотозон</h1></div>
+		</article>
+		<aside>
+		<div id='light'>
+			<h3>Светлый зал</h3>
+			<img src='4.jpg' alt='' width='270px' height='200px'/>
+			<p>Светлый зал оформлен в романтическом стиле и совмещает в себе прованс, шебби-шик, настроения Венеции и Шервудского леса. 
+			В исполнении интерьеров использованы натуральные материалы и разнообразный реквизит, придающий залу атмосферности: дерево, 
+			свечи и мох здесь идеально гармонируют с белоснежными тканями и аккуратной мебелью. Зал идеально подходит для свадебных съемок, 
+			семейных, детских, а также тематических фотосессий.</p>
+		</div>
+		<div id='black'>
+			<h3>Тёмный зал</h3>
+			<img src='2.jpg' alt='' width='270px' height='200px'/>
+			<p>Темный зал – это атмосфера харизмы и интимности. Исполнен в цветах темного дерева и мускатного ореха с акцентом на красно-синих 
+			элементах британского интерьера. Главная особенность темного зала – стена из ламп, которая не только играет роль оригинального фона, 
+			но и создает особое впечатление отделенности от внешнего мира. Зал идеально подходит для фотосессии путешественника, бизнес-, фешн- и 
+			тематических съемок.</p>
+		</div>
+		<div id='rama'>
+			<h3>Циклорама — зал</h3>
+			<img src='3.jpg' alt='' width='270px' height='200px'/>
+			<p>Циклорама-зал – неотъемлемая часть профессиональной фотостудии. Здесь расположена белая циклорама, черный, серый и зеленый фоны, 
+			а также большая интерьерная зона в стиле поп-арт. Зал идеально подходит для портретной, предметной фотосъемки, а также современных и 
+			фешн-фотосессий.</p>
+		</div>
+		</aside>
+		<div id='vidakc'>
+			<div id='video'>
+				<object width="450" height="280">
+					<param name="movie" value="https://www.youtube.com/v/MnBMD9f9zjg?version=3&autohide=1"></param>
+					<param name="allowFullScreen" value="true"></param>
+					<param name="allowscriptaccess" value="always"></param>
+					<embed src="https://www.youtube.com/v/MnBMD9f9zjg?version=3&autohide=1" 
+							type="application/x-shockwave-flash" width="450" height="280" allowscriptaccess="always" allowfullscreen="true"></embed>
+				</object>
+				<!--<iframe width="560" height="315" src="https://www.youtube.com/embed/MnBMD9f9zjg?autohide=1" 
+				frameborder="0" allowfullscreen></iframe>-->	
+			</div>
+			<div id='akcii'>
+				<h1>СКИДКИ и АКЦИИ</h1>
+				<p>Спешите успеть с 1 октября по 1 ноября успейте заказать фотостудию и получить 30% скидку.</p>
+				<p>Также можно купить подарочный сертификат без даты использования и получить скидку 30%.</p>
+			</div>
+		</div>
+		<footer>
+			<h3>Сайт разработал <a href='https://vk.com/id11128665' target='_blank'>Lemesh A S</a></h3>
+		</footer>
+	</body>
+
+</html>
